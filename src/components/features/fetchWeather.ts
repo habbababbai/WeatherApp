@@ -1,20 +1,30 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 interface WeatherData {
-    data: HourData[];
+    city: City;
+    list: HourData[];
 }
 interface HourData {
-    temp: string;
-    dt_txt: string;
+    main: Temperatures,
+    dt_txt: string,
+}
+interface Temperatures {
+    temp: number;
+}
+interface City {
+    country: string;
+    name: string;
 }
 
 export const weatherApi = createApi({
     reducerPath: "weatherApi",
-    baseQuery: fetchBaseQuery({ baseUrl: "api.openweathermap.org/data/2.5/" }),
+    baseQuery: fetchBaseQuery({
+        baseUrl: "https://api.openweathermap.org/data/2.5/",
+    }),
     endpoints: (builder) => ({
         getWeatherByCity: builder.query<WeatherData, string>({
             query: (name) =>
-                `forecast?=q${name}&appid=${process.env.API_KEY}&units=metric`,
+                `forecast?q=${name}&appid=bad46dfee1ae1125ec4faf31e63449de&units=metric`,
         }),
     }),
 });

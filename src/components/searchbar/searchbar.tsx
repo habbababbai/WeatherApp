@@ -18,7 +18,6 @@ export default function Searchbar() {
                 title="Search"
                 onPress={() => dispatch(changeVal(input))}
             ></Button>
-            <Text></Text>
         </View>
     );
 }

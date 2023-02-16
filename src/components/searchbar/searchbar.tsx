@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { View, TextInput, Button, Text } from "react-native";
+import {
+    View,
+    TextInput,
+    Button,
+    Text,
+    Keyboard,
+    StyleSheet,
+} from "react-native";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { changeVal } from "../features/searchbarSlice";
 
@@ -13,11 +20,25 @@ export default function Searchbar() {
                 placeholder="Type city here..."
                 value={input}
                 onChangeText={(value) => setInput(value)}
+                style={styles.input}
             ></TextInput>
             <Button
                 title="Search"
-                onPress={() => dispatch(changeVal(input))}
+                onPress={() => {
+                    dispatch(changeVal(input));
+                    Keyboard.dismiss();
+                }}
             ></Button>
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    input: {
+        borderRadius: 10,
+        borderWidth: 0.5,
+        height: 25,
+        width: 200,
+        textAlign: "center",
+    },
+});

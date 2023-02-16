@@ -10,6 +10,9 @@ import {
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { changeVal } from "../features/searchbarSlice";
 
+//  Searchbar component
+//  it has a string state, that on button click is pushed to redux store
+//  and later is fetched by the API
 export default function Searchbar() {
     const [input, setInput] = useState("");
     const dispatch = useAppDispatch();

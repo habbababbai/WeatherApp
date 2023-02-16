@@ -8,6 +8,9 @@ export default function Chart() {
     const { data, error, isFetching, isLoading } =
         useGetWeatherByCityQuery(cityName);
 
+    //  While API is being fetched Loading info is shown
+    if (isFetching || isLoading) return <Text>...Loading...</Text>;
+
     // Initially there is no data to be shown
     //  So the app returns empty Text
     if (!data) return <Text></Text>;
@@ -18,9 +21,6 @@ export default function Chart() {
     //  In case of API throwing error back message saying that city is not found
     //  is shown
     if (error) return <Text>City not found</Text>;
-
-    //  While API is being fetched Loading info is shown
-    if (isFetching || isLoading) return <Text>...Loading...</Text>;
 
     //  Chart config
     const chartConfig = {
@@ -52,25 +52,23 @@ export default function Chart() {
         ],
     };
 
-    if (cityName && data.city.name) {
-        return (
+    return (
+        <View>
+            <Text style={styles.title}>
+                {data.city.name} {data.city.country}
+            </Text>
             <View>
-                <Text style={styles.title}>
-                    {data.city.name} {data.city.country}
-                </Text>
-                <View>
-                    <BarChart
-                        chartConfig={chartConfig}
-                        yAxisLabel=""
-                        yAxisSuffix="℃"
-                        data={chartData}
-                        width={400}
-                        height={500}
-                    ></BarChart>
-                </View>
+                <BarChart
+                    chartConfig={chartConfig}
+                    yAxisLabel=""
+                    yAxisSuffix="℃"
+                    data={chartData}
+                    width={400}
+                    height={500}
+                ></BarChart>
             </View>
-        );
-    }
+        </View>
+    );
 }
 const styles = StyleSheet.create({
     title: {

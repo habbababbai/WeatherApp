@@ -1,6 +1,6 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import searchbarReducer from "../components/features/searchbarSlice";
-import { weatherApi } from "../components/features/fetchWeather";
+import searchbarReducer from "../features/searchbarSlice";
+import { weatherApi } from "../features/fetchWeather";
 
 //  Redux store made using Redux Toolkit
 export const store = configureStore({

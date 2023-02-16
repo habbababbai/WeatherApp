@@ -8,7 +8,7 @@ import {
     StyleSheet,
 } from "react-native";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
-import { changeVal } from "../features/searchbarSlice";
+import { changeVal } from "../../features/searchbarSlice";
 
 //  Searchbar component
 //  it has a string state, that on button click is pushed to redux store

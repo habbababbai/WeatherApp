@@ -34,3 +34,10 @@ npx expo start --tunnel
 -   [Redux Toolkit](https://redux-toolkit.js.org/)
 -   [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
 -   [React-Native-Chart-Kit](https://www.npmjs.com/package/react-native-chart-kit)
+
+# Folder structure
+- assets - hold projects assets
+- src
+    - components - React components are stored here
+    - features - Redux store slices
+    - redux - Redux store and its hooks

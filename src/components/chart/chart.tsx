@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import { BarChart } from "react-native-chart-kit";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
-import { useGetWeatherByCityQuery } from "../features/fetchWeather";
+import { useGetWeatherByCityQuery } from "../../features/fetchWeather";
 
 export default function Chart() {
     const cityName = useAppSelector((state) => state.searchbar.value);
